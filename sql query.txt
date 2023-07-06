@@ -1,0 +1,28 @@
+create database IMDB_Task1 ;
+use IMDB_task1;
+create table Movies(`id` int not null, `name` varchar(25) null,
+`media` varchar(25) null, `Genre` varchar(45) null);
+select * from Movies;
+Insert into Movies(id,name,media,Genre)Values (1,'kaanthara','video','sentimental');
+insert into Movies values(2,'anna tangi','video','action'),(3,'KGF', "video/image",'action+ thriller'),(4,'KGF-2', "video/image",'action+ thriller'),
+(5,'24' ,"image",'thriller'),(6,'ant man' ,"video/image",'sci-fi'),(7,'king kong' ,"video/image",'action+sentiment');
+
+
+create table Reviews(`id` int not null ,`movie_id` int null ,`movie_name` varchar(40) null,`user` varchar(20) null, `reviews` varchar(100) null);
+insert into Reviews values (1,1, 'kaantharra','Maruthikj4', 'The fight sequences, the dance of daiva is excellent'),(2,1, 'kaantharra','jose',
+ 'nature love movie'),(3,2, 'anna tangi','kushiram kushi', 'The fight were good ,nice sentimental')
+,(4,3, 'KGF','Maruthikj4', 'The fight sequences are awesome'),(5,4, 'KGF','Kushiram jose', 'The fight sequences nice and more thriller one'),
+(6,6, '24','Maruthikj4', 'The fight sequences, the dance of daiva is excellent'),(7,7, 'antman','Maruthikj4', 'The fight sequences, the dance
+ of daiva is excellent')
+,(8,5, 'king kong','Maruthikj4', 'The fight sequences, the dance of daiva is excellent');
+select * from Reviews;
+
+create table Artists (`id` int not null,`movie_id` int null , `artist_name` varchar(20) null, `skills` varchar(45) null, `role` varchar(20) null);
+insert into Artists values(1,1,'rishab shetty','dancer,singer,actor','hero,father'),(2,3,'Yash',',actor,business man','hero,father'),(2,4,'Yash',',actor,business man','hero,father')
+,(3,2,'DR shivaraj kumar','dancer,singer,actor','hero,brothe'),
+(4,3,'srinidhi shetty','dancer,singer,actor','heroin,lover'),(4,4,'srinidhi shetty','dancer,singer,actor','heroin,lover');
+
+select * from movies 
+inner join artists on movies.id=artists.movie_id 
+inner join reviews on movies.id=reviews.movie_id;
+ 
